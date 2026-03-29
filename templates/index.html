@@ -3,47 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisionBin AI | Smart Waste Segregation</title>
-    
-    <link rel="icon" type="image/jpeg" href="favicon.png">
-    
-    <link rel="stylesheet" href="style.css">
+    <title>VisionBin AI</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <header>
-        <img src="logo.jpeg" alt="VisionBin AI Logo" class="main-logo">
+        <img src="{{ url_for('static', filename='logo.jpeg') }}" alt="Logo" class="main-logo">
         <h1>VisionBin AI</h1>
         <p>Real-Time Waste Detection & Segregation</p>
     </header>
-
     <main class="dashboard">
         <div class="camera-section">
             <div class="video-placeholder" id="display-container">
                 <p>Live Camera Feed / Uploaded Media</p>
             </div>
-            
             <div class="upload-controls">
-                <label for="imageUpload" class="action-btn">Upload Photo</label>
+                <label for="imageUpload" class="action-btn" id="upload-photo-label">Upload Photo</label>
                 <input type="file" id="imageUpload" accept="image/*" hidden>
-                
-                <label for="videoUpload" class="action-btn">Upload Video</label>
+                <label for="videoUpload" class="action-btn" id="upload-video-label">Upload Video</label>
                 <input type="file" id="videoUpload" accept="video/*" hidden>
-                
-                <button class="action-btn webcam-btn">Start Webcam</button>
+                <button class="action-btn webcam-btn" id="start-webcam">Start Webcam</button>
             </div>
         </div>
-
         <div class="results-section">
             <h2>Detection Result</h2>
-            <div class="status-box" id="waste-status">
-                <p>Waiting for item...</p>
-            </div>
+            <div class="status-box" id="waste-status"><p>Waiting for item...</p></div>
             <div class="guidance-box">
                 <p id="item-type">Item: None Detected</p>
-                <p id="disposal-guidance" class="guidance-text">Please hold an item in front of the camera or upload a file.</p>
+                <p id="disposal-guidance" class="guidance-text">Hold an item to the camera or upload a file.</p>
             </div>
         </div>
     </main>
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
